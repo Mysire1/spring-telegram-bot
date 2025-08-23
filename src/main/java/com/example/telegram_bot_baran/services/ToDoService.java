@@ -3,6 +3,7 @@ package com.example.telegram_bot_baran.services;
 import com.example.telegram_bot_baran.DTO.ToDoDTO;
 import com.example.telegram_bot_baran.mapper.ToDoMapper;
 import com.example.telegram_bot_baran.repository.ToDoRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,15 +11,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class ToDoService {
     private final ToDoRepository repository;
     @Autowired
     private final ToDoMapper mapper;  // додали маппер
-
-    public ToDoService(ToDoRepository repository, ToDoMapper mapper) {
-        this.repository = repository;
-        this.mapper = mapper;
-    }
 
     public List<ToDoDTO> getTasksForUser(String name) {
         return repository.findByName(name).stream()
