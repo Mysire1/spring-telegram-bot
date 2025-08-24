@@ -10,7 +10,7 @@ import java.io.IOException;
 
 @Service
 public class FaceitCommand implements Command {
-    private static final String FACEIT_PATH = "\"C:\\Program Files\\FACEIT AC\\faceitclient.exe\"";
+    private static final String FACEIT_PATH = "C:\\Program Files\\FACEIT AC\\faceitclient.exe";
 
     @Override
     public String getName() {
@@ -23,7 +23,7 @@ public class FaceitCommand implements Command {
             bot.execute(new SendMessage(update.message().chat().id(), "Starting Faceit"));
             try {
                 new ProcessBuilder(FACEIT_PATH).start();
-                Thread.sleep(60000);
+                Thread.sleep(100000);
 
                 bot.execute(new SendMessage(update.message().chat().id(), "Faceit already working. Starting Counter-Strike 2..."));
                 new ProcessBuilder("cmd.exe", "/c", "start", "steam://rungameid/730").start();

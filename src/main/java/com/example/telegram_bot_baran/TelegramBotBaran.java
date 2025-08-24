@@ -1,6 +1,7 @@
 package com.example.telegram_bot_baran;
 
 import com.example.telegram_bot_baran.command.*;
+import com.example.telegram_bot_baran.command.PC_commands.FaceitCommand;
 import com.example.telegram_bot_baran.command.PC_commands.RestartCommand;
 import com.example.telegram_bot_baran.command.PC_commands.ShutDownCommand;
 import com.example.telegram_bot_baran.command.todocommands.*;
@@ -40,7 +41,8 @@ public class TelegramBotBaran  {
                 new ToDoDeleteCommand(taskStorage),
                 new ToDoEditCommand(taskStorage),
                 new RestartCommand(),
-                new ShutDownCommand()
+                new ShutDownCommand(),
+                new FaceitCommand()
         };
 
         for (Command command : commands) {
